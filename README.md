@@ -49,7 +49,7 @@ o	the subscription plan that the product component version supports
 Run the reference implementation in a hybrid environment using a local instance of IBM UrbanCode Deploy and IBM Cloud
 The following example implementation will walk you through the set up and configuration to manage APIs in a hybrid architecture. 
 
-Note details to come!
+Note detailed instructions to come!
 
 Step 1: Environment Setup
 Pre-requisites
@@ -61,9 +61,15 @@ Pre-requisites
    * Install Node.js version 4.x. 
    * Install API Connect Toolkit using NPM
    * Register for a Bluemix account.
+
 Step 2: Configure Bluemix space(s), provision IBM API Connect service and set up 3 Catalogs (sandbox, UAT and production). 
+
 Step 3: Set up two versions of a sample API implementation and the corresponding API definitions (sourced in GitHub). 
+
 Step 4: Configure the integration between GitHub and Jenkins. 
+
 Step 5: Configure the integration between Jenkins and IBM UrbanCode Deploy
+
 Step 6: Configure IBM UrbanCode Deploy. 
+
 Step 7: Automate the publishing of the API definitions to the API Connect service on IBM Bluemix when the API definitions are changed.
