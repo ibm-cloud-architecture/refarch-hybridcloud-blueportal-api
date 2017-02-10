@@ -1,4 +1,4 @@
-#####Managing APIs with DevOps in a Hybrid Architecture#####
+#Managing APIs with DevOps in a Hybrid Architecture#
 
 This project provides a reference implementation for managing the lifecycle of APIs using IBM UrbanCode Deploy and the API Connect service on IBM Bluemix.  
 
@@ -34,7 +34,7 @@ The API Product contains the definition of one or more APIs.
 API Implementation	Component(s)	A UCD Component represents an API Implementation. Each API defined in the Product has a corresponding implementation. The source code that provides the implementation of the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages.  
 Each API implementation is represented by a UCD component.  This component stores the version artifacts that results from the build of the API’s implementation source code.  
 
-#Assumptions#
+#####Assumptions#####
 •	When creating the product component version in the Build system (i.e. Jenkins, Rational Team Concert, etc) a set of version properties are required to communicate to IBM UrbanCode Deploy as follows:
 o	the type of change (major | minor | patch) 
 o	the version name that is to be replaced by this version.   
@@ -53,14 +53,14 @@ Note details to come!
 
 Step 1: Environment Setup
 Pre-requisites
-•	Install IBM UrbanCode Deploy 6.2.2 or later.
-o	Install the IBM UrbanCode Deploy - API Connect Plug-in. 
-•	Install Jenkins 2.19 or later.
-o	Install the IBM UrbanCode Deploy plugin
-o	Install the GitHub plugin
-•	Install Node.js version 4.x. 
-•	Install API Connect Toolkit using NPM
-•	Register for a Bluemix account.
+   *	Install IBM UrbanCode Deploy 6.2.2 or later.
+   * 	Install the IBM UrbanCode Deploy - API Connect Plug-in. 
+   * Install Jenkins 2.19 or later.
+   * Install the IBM UrbanCode Deploy plugi
+   * Install the GitHub plug
+   * Install Node.js version 4.x. 
+   * Install API Connect Toolkit using NPM
+   * Register for a Bluemix account.
 Step 2: Configure Bluemix space(s), provision IBM API Connect service and set up 3 Catalogs (sandbox, UAT and production). 
 Step 3: Set up two versions of a sample API implementation and the corresponding API definitions (sourced in GitHub). 
 Step 4: Configure the integration between GitHub and Jenkins. 
