@@ -26,6 +26,14 @@ This section explains the relationship between IBM UrbanCode Deploy and API Conn
 
 The following table provides a mapping between API Connect and IBM UrbanCode Deploy objects.
 
+|API Connect|IBM UrbanCode Deploy|Description|
+|:---:|:---:|:---:|
+|Catalog|Environment|A UCD environment represents an API Connect Catalog.  Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment.|
+|Product|Component|One UCD component represents one API Product within API Connect.  The component stores the version artifacts that represent the version of the API Product.
+The API Product contains the definition of one or more APIs. |
+|API Implementation|Component(s)|A UCD Component represents an API Implementation. Each API defined in the Product has a corresponding implementation. The source code that provides the implementation of the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages.  
+Each API implementation is represented by a UCD component.  This component stores the version artifacts that results from the build of the API’s implementation source code.|
+
 API Connect	IBM UrbanCode Deploy	Description
 Catalog	Environment	A UCD environment represents an API Connect Catalog.  Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment.
 Product	Component	One UCD component represents one API Product within API Connect.  The component stores the version artifacts that represent the version of the API Product.
