@@ -35,13 +35,13 @@ API Implementation	Component(s)	A UCD Component represents an API Implementation
 Each API implementation is represented by a UCD component.  This component stores the version artifacts that results from the build of the API’s implementation source code.  
 
 #####Assumptions#####
-•	When creating the product component version in the Build system (i.e. Jenkins, Rational Team Concert, etc) a set of version properties are required to communicate to IBM UrbanCode Deploy as follows:
-o	the type of change (major | minor | patch) 
-o	the version name that is to be replaced by this version.   
-o	the subscription plan that the product component version supports
-•	When there is a major change, a new branch in the SCM system (Git, Rational Team Concert, etc) is created for that stream.  A major change is defined as an impact on the API endpoints or major changes to the API implementation.
-•	To deploy to the PROD UCD Environment, the product and application component versions require a status of TESTED set on them in order for IBM UrbanCode Deploy to execute the deployment process.  This status can be applied automatically with automated testing implemented in IBM UrbanCode Deploy
-•	The API Connect catalog (represented by the IBM UrbanCode environment) may support multiple product version.  For ease of use, the solution outlined in this paper will constrain the major releases per product version to two (N and N+1). 
+   * When creating the product component version in the Build system (i.e. Jenkins, Rational Team Concert, etc) a set of version properties are required to communicate to IBM UrbanCode Deploy as follows:   
+   * The type of change (major | minor | patch) 
+   * The version name that is to be replaced by this version.   
+   * The subscription plan that the product component version supports
+   * When there is a major change, a new branch in the SCM system (Git, Rational Team Concert, etc) is created for that stream.  A major change is defined as an impact on the API endpoints or major changes to the API implementation.  
+   * To deploy to the PROD UCD Environment, the product and application component versions require a status of TESTED set on them in order for IBM UrbanCode Deploy to execute the deployment process.  This status can be applied automatically with automated testing implemented in IBM UrbanCode Deploy
+   * The API Connect catalog (represented by the IBM UrbanCode environment) may support multiple product version.  For ease of use, the solution outlined in this paper will constrain the major releases per product version to two (N and N+1). 
 
 
 ###Implementation Overview###
