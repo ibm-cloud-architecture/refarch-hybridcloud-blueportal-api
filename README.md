@@ -11,9 +11,8 @@ IBM UrbanCode Deploy can be leveraged to automate the deployment of APIs using t
 The deployment activities will be defined in IBM UrbanCode Application and Component processes and the processes will be executed by IBM UrbanCode Deploy Agent(s), which are small processes that does the work on behalf of the controller servers.  
 
 ![Figure 1 - DevOps for API Connect using IBM UrbanCode Deploy](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/APIC_UCD_Readme_Figure1.png)
-Figure 1 - DevOps for API Connect using IBM UrbanCode Deploy
 
-Figure 1 shows the overall workflow.  A component process defined in IBM UrbanCode Deploy will stage, publish and/or replace a published API definition(s) in the Sandbox, UAT and/or PROD Catalogs.  Once the publishing is complete, developers can go to the developer portal(s) to subscribe to and consume the APIs.  
+Figure 1 shows the overall DevOps workflow for API Connect using IBM UrbanCode Deploy.  A component process defined in IBM UrbanCode Deploy will stage, publish and/or replace a published API definition(s) in the Sandbox, UAT and/or PROD Catalogs.  Once the publishing is complete, developers can go to the developer portal(s) to subscribe to and consume the APIs.  
 
 Before we proceed further, let’s define the different types of API changes and the corresponding Product / API definition version increment rules for Product / API definitions.  
 
