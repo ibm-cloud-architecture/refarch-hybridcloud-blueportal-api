@@ -16,9 +16,9 @@ Figure 1 shows the overall DevOps workflow for API Connect using IBM UrbanCode D
 
 Before we proceed further, let’s define the different types of API changes and the corresponding Product / API definition version increment rules for Product / API definitions.  
 
-   •	For major (API breaking) changes, defined as a change impacting the API endpoints or major changes to the API implementation, this will result in a major version increment (ie. 1.0.0 -> 2.0.0).  The new version of the API will be published to the UAT and PROD catalogs and the subscriptions will be manually migrated.  Once all the subscriptions are migrated, the older version of the API will be set to a “retired” state. 
-   •	For minor (non-breaking) changes, there will be a minor version increment (ie. 1.0.0 -> 1.1.0).  The new version of the API will replace the existing version in the UAT and PROD catalogs.  The subscriptions will be automatically migrated and the older version of the API will be set to the “retired” state. 
-   •	For bug fixes and/or patches to the API implementation that do not impact the API interface, no version changes to the API are expected.
+   * For major (API breaking) changes, defined as a change impacting the API endpoints or major changes to the API implementation, this will result in a major version increment (ie. 1.0.0 -> 2.0.0).  The new version of the API will be published to the UAT and PROD catalogs and the subscriptions will be manually migrated.  Once all the subscriptions are migrated, the older version of the API will be set to a “retired” state. 
+   *  For minor (non-breaking) changes, there will be a minor version increment (ie. 1.0.0 -> 1.1.0).  The new version of the API will replace the existing version in the UAT and PROD catalogs.  The subscriptions will be automatically migrated and the older version of the API will be set to the “retired” state. 
+   *  For bug fixes and/or patches to the API implementation that do not impact the API interface, no version changes to the API are expected.
 
 ###API Connect and IBM UrbanCode Deploy Configuration###
 
