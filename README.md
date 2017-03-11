@@ -4,7 +4,7 @@
 
 A DevOps platform for APIs provides the ability to streamline and automate the process of developing, building, testing and deploying APIs onto the API runtime cloud platform either when these APIs are organically developed or when they are exposed endpoints to existing backend services.
 
-![Architecture]()
+![Architecture](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/HybridCloud_API_Architecture.png)
 
 **Architecture Overview**
 
@@ -24,7 +24,7 @@ The specific tools that are used to implement this reference architecture&#39;s 
 
 New or change to existing services and APIs are delivered continuously to a development pipeline. The changes are then handled to support a change and governance model to ensure API subscribers can easily consume the changes. This is critical when the changes delivered require any changes to the end-user subscriber.  In order to support this governance model, we are following the processes outlined in the diagram below:
 
-![API Governance Model]()
+![API Governance Model](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/API_Governance_Model.png)
 
 This diagram shows how API implementations and the information published to APIC should be automated to ensure the release governance model is supported. The different types of API changes and the corresponding Product / API definition version increment rules for Product / API definitions include:
 
@@ -38,7 +38,7 @@ This diagram reveals the overall DevOps workflow for API implementation and APIC
 
 Changes are promoted automatically using a defined set of business rules or through manual activation of the automation. In each case, a promotion to a new environment/catalog includes the latest versions of API code, yaml and the deployment processes. This provides a means to mature the process through testing and validation.
 
-![Deployment Sample]()
+![Deployment Sample](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Deployment_Sample.png)
 
 ### API Connect and IBM UrbanCode Deploy Configuration
 
@@ -70,67 +70,65 @@ This repository contains the instructions, configuration files and example APIC 
 
 Click this link to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
 
-- **??** Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
+- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
 
 1. **Run the reference architecture in your local environment.**
 
 **Step 1:  Setup your local environment  **
 
-- **??** Register for a [Bluemix](https://bluemix.net/registration) account
-- **??** Install [js](https://nodejs.org/en/) v4.x
-- **??** Install [Git](https://git-scm.com/)
-- **??** Install [shyaml](https://github.com/0k/shyaml) (YAML parser)
-- **??** [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
-- **??** [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
-- **??** [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
-- **??** [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) – or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
-- **??** [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
-- **??** [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins)) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
+- Register for a [Bluemix](https://bluemix.net/registration) account
+- Install [js](https://nodejs.org/en/) v4.x
+- Install [Git](https://git-scm.com/)
+- Install [shyaml](https://github.com/0k/shyaml) (YAML parser)
+- [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
+- [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
+- [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
+- [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) – or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
+- [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
+- [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins)) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
 
 **Step 2: Create a repository clone**
 
-- **??** Clone this GIitHub repository:
-  - **oo** [https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git)
+- Clone this GIitHub repository:
+  - [https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git)
 
 **Step 3: Create API Connect Catalogs**
 
-- **??** Use the [General instructions to create API Connect catalogs:](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.apionprem.doc/create_env.html)
+- Use the [General instructions to create API Connect catalogs:](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.apionprem.doc/create_env.html)
 
-- **??** Sandbox (default Catalog)
-- **??** UAT
-- **??** PROD
+- andbox (default Catalog)
+- UAT
+- PROD
 
-![API Connect Catalogs]()
+![API Connect Catalogs](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/APIC_Catalogs.png)
 
 **Step 4: Configure pipeline tools and integrations**
 
 - [Create Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
-  - **oo** Copy the file&quot; /Jenkins/job/acme-bank.tar.Z&quot;  into the file system where Jenkins is installed.
-  - **oo** Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
-  - **oo** Navigate to the Jenkins feature Manage Jenkins &gt; Configure Jenkins and run &quot;reload from disk&quot; to automatically create the acme bank job.
+  - Copy the file&quot; /Jenkins/job/acme-bank.tar.Z&quot;  into the file system where Jenkins is installed.
+  - Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
+  - Navigate to the Jenkins feature Manage Jenkins &gt; Configure Jenkins and run &quot;reload from disk&quot; to automatically create the acme bank job.
 
 - [Configure Jenkins and GitHub integration](https://jenkins.io/solutions/github/)
-  - **oo** Add a webhook to the GitHub repository using the Jenkins URL (ie https://&lt;Jenkins server&gt;:&lt;port&gt;/github-webhook/).
+  - Add a webhook to the GitHub repository using the Jenkins URL (ie https://&lt;Jenkins server&gt;:&lt;port&gt;/github-webhook/).
 
-![Git Webhook]()
+![Git Webhook](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/GitHub_Repo_Webhook.png)
 
 - **??** [Configure IBM UrbanCode Deploy and Jenkins integration](http://www-01.ibm.com/support/docview.wss?uid=swg21664334)
-  - **oo** Add the UCD server details to the Jenkins&#39; UCD configuration page and test the connection.
+  - Add the UCD server details to the Jenkins&#39; UCD configuration page and test the connection.
 
-![Jenkins UCD Config]()
+![Jenkins UCD Config](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Jenkins_UCD_Config.png)
 
 **Step 5: Configure IBM UrbanCode Deploy  **
 
-- **??** [Import configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
-  - **oo** Locate the file /ucd/application/acme-bank.json and import it to the server file system where UCD is installed.
-  -
-**oo** Locate the UCD import feature in Applications &gt; Import. And run the import of the acme-bank.json.
+- [Import configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
+  - Locate the file /ucd/application/acme-bank.json and import it to the server file system where UCD is installed.
+  - Locate the UCD import feature in Applications &gt; Import. And run the import of the acme-bank.json.
 
-![UCD JSON Import]()
+![UCD JSON Import](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Import_JSON.png)
 
-  - **oo**
-- **??** Update Environment Information
-  - **oo** Update each UCD Environment properties to reference corresponding API Connect catalog properties.
+- Update Environment Information
+  - Update each UCD Environment properties to reference corresponding API Connect catalog properties.
     - Enter the URL to APIC you are using
     - APIC Username
     - APIC Tooklit path
@@ -138,8 +136,8 @@ Click this link to experience this implementation using our cloud hosted lab. A 
 
 (see below)
 
-![UCD Env Prop]()
+![UCD Env Prop](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Env_Prop.png)
 
 **Step 6: Publish API and Product to API Connect**
 
-- **??** Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository  and use the steps outlined to explore this architecture.
+- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository  and use the steps outlined to explore this architecture.
