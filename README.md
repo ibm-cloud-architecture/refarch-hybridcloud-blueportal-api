@@ -56,17 +56,17 @@ The following table provides a mapping between API Connect and IBM UrbanCode Dep
 
 This repository contains the instructions, configuration files and example APIC yaml files to implement the architecture using the products noted above. The are two ways in which you can explore the architecture 1) using IBMs on demand lab environment or 2) implementing in your own environment. To accelerate your experience, this repository contains the assets to quickly establish an environment, implement the architecture and a guide to exploring the results. This repository contains:
 
-- Jenkins job archive containing build job for APIC content: acme-bank.tar.Z
-- API Product Definition YAML: acme-bank-product.yaml
-- API Definition YAML: acme-bank.yaml
-- IBM UrbanCode Deploy Application JSON: /ucd-application/acme-bank.json
-- Lab for exploring the architecture  HybridDevOpsForAPIC.pdf
+- Jenkins job archive containing build job for APIC content: [/jenkins/acme-bank.tar.Z](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/jenkins/acme-bank.tar.Z)
+- API Product Definition YAML: [acme-bank-product.yaml](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/acme-bank-product.yaml)
+- API Definition YAML: [acme-bank.yaml](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/acme-bank.yaml)
+- IBM UrbanCode Deploy Application JSON: [/ucd-application/acme-bank.json](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/ucd-application/acme-bank.json)
+- Lab for exploring the architecture  [HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)
 
 ### Options to implement the architecture
 
 #### 1. Run the reference architecture in a IBM hosted lab environment.
 
-Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
+Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab. A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
 
 - Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
 
@@ -103,7 +103,7 @@ Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1G
 ##### Step 4: Configure pipeline tools and integrations
 
 - [Create Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
-  - Copy the file&quot; /Jenkins/job/acme-bank.tar.Z&quot;  into the file system where Jenkins is installed.
+  - Copy the file [acme-bank.tar.Z](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/jenkins/acme-bank.tar.Z) into the file system where Jenkins is installed.
   - Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
   - Navigate to the Jenkins feature Manage Jenkins &gt; Configure Jenkins and run &quot;reload from disk&quot; to automatically create the acme bank job.
 
@@ -120,7 +120,7 @@ Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1G
 ##### Step 5: Configure IBM UrbanCode Deploy
 
 - [Import configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
-  - Locate the file /ucd/application/acme-bank.json and import it to the server file system where UCD is installed.
+  - Locate the file [acme-bank.json](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/ucd-application/acme-bank.json) and import it to the server file system where UCD is installed.
   - Locate the UCD import feature in Applications &gt; Import. And run the import of the acme-bank.json.
 
 ![UCD JSON Import](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Import_JSON.png)
