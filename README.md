@@ -105,7 +105,7 @@ Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1G
 - [Create Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
   - Copy the file [acme-bank.tar.Z](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/jenkins/acme-bank.tar.Z) into the file system where Jenkins is installed.
   - Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
-  - Navigate to the Jenkins feature Manage Jenkins &gt; Configure Jenkins and run &quot;reload from disk&quot; to automatically create the acme bank job.
+  - Navigate to the Jenkins feature Manage Jenkins and run &quot;Reload Configuration from Diskk&quot; to automatically create the acme bank job.
 
 - [Configure Jenkins and GitHub integration](https://jenkins.io/solutions/github/)
   - Add a webhook to the GitHub repository using the Jenkins URL (ie https://&lt;Jenkins server&gt;:&lt;port&gt;/github-webhook/).
