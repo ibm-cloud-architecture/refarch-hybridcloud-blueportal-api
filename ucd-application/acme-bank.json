@@ -1,0 +1,1146 @@
+{
+    "name": "acme-bank",
+    "description": "",
+    "enforceCompleteSnapshots": false,
+    "propSheet": {"properties": []},
+    "templatePropSheet": {
+        "name": "template",
+        "properties": []
+    },
+    "components": [{
+        "name": "acme-bank",
+        "description": "Acme Bank API Product Definition",
+        "created": 1488858537808,
+        "componentType": "STANDARD",
+        "ignoreQualifiers": 0,
+        "importAutomatically": false,
+        "useVfs": true,
+        "active": true,
+        "deleted": false,
+        "defaultVersionType": "INCREMENTAL",
+        "cleanupDaysToKeep": 0,
+        "cleanupCountToKeep": 0,
+        "componentTemplate": {
+            "securityResourceId": "fc1e6b23-7088-4c9c-ad7e-eb33134f917d",
+            "path": "componentTemplates\/fa5e087f-f07b-49a7-bd79-014c4ae09523",
+            "name": "API_PRODUCT_LB_TEMPLATE",
+            "description": "",
+            "ignoreQualifiers": 0,
+            "componentType": "STANDARD",
+            "tags": [],
+            "active": true,
+            "envPropDefs": [],
+            "resPropDefs": [{
+                "name": "test",
+                "label": "test",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "",
+                "placeholder": ""
+            }],
+            "propDefs": [],
+            "properties": [],
+            "processes": [{
+                "name": "RemoveFromInventory",
+                "description": "Remove specified version from inventory",
+                "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+                "takesVersion": true,
+                "inventoryActionType": "REMOVE",
+                "status": "Active",
+                "active": true,
+                "path": "componentTemplates\/fa5e087f-f07b-49a7-bd79-014c4ae09523\/processes\/bf9480cf-ed70-474d-af19-74763ba7f0bf",
+                "propDefs": [],
+                "rootActivity": {
+                    "edges": [
+                        {
+                            "to": "Remove From Inventory",
+                            "type": "ALWAYS",
+                            "value": ""
+                        },
+                        {
+                            "to": "107e580b6b0f0c190f396240bdbc65",
+                            "from": "Remove From Inventory",
+                            "type": "SUCCESS",
+                            "value": ""
+                        }
+                    ],
+                    "offsets": [
+                        {
+                            "name": "107e580b6b0f0c190f396240bdbc65",
+                            "x": -5,
+                            "y": 420,
+                            "h": 90,
+                            "w": 130
+                        },
+                        {
+                            "name": "Remove From Inventory",
+                            "x": 14.879518072289159,
+                            "y": 186.86746987951807,
+                            "h": 80,
+                            "w": 290
+                        }
+                    ],
+                    "layoutMode": "manual",
+                    "type": "graph",
+                    "name": "fa574f4a-2424-4ab0-8cce-8dcee093e047",
+                    "children": [
+                        {
+                            "type": "finish",
+                            "name": "107e580b6b0f0c190f396240bdbc65",
+                            "children": []
+                        },
+                        {
+                            "allowFailure": false,
+                            "useImpersonation": false,
+                            "showHidden": false,
+                            "impersonationUseSudo": false,
+                            "commandName": "Shell",
+                            "pluginName": "Shell",
+                            "pluginVersion": 7,
+                            "properties": {
+                                "directoryOffset": ".",
+                                "shellInterpreter": "",
+                                "scriptBody": "echo \"Removing version ${p:version.name} from inventory\"\n\necho \"When called from an application uninstall process step with the uninstall type of _All Specified Version_, \\n this step will remove the specified version(s) from the environment's inventory \"\n",
+                                "runAsDaemon": "false",
+                                "outputFile": ""
+                            },
+                            "type": "plugin",
+                            "name": "Remove From Inventory",
+                            "children": []
+                        }
+                    ]
+                }
+            }],
+            "genericProcesses": [],
+            "teamMappings": []
+        },
+        "envPropDefs": [
+            {
+                "name": "apic.server",
+                "label": "API Connect Server URL",
+                "pattern": "",
+                "type": "TEXT",
+                "required": true,
+                "description": "API Connect Server URL",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.username",
+                "label": "API Connect Account Username",
+                "pattern": "",
+                "type": "TEXT",
+                "required": true,
+                "description": "API Connect Account Username",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.path",
+                "label": "API Connect Toolkit Path",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "API Connect Toolkit Path",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.organization",
+                "label": "API Connect Server Org",
+                "pattern": "",
+                "type": "TEXT",
+                "required": true,
+                "description": "API Connect Server Org",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.catalog",
+                "label": "API Connect Catalog",
+                "pattern": "",
+                "type": "TEXT",
+                "required": true,
+                "description": "API Connect Catalog",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.definition",
+                "label": "API Product Definition",
+                "pattern": "",
+                "type": "TEXT",
+                "required": true,
+                "description": "API Product Definition",
+                "placeholder": ""
+            }
+        ],
+        "resPropDefs": [],
+        "versionPropDefs": [
+            {
+                "name": "change.type",
+                "label": "change.type",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "Type of API definition change",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.oldProduct",
+                "label": "apic.oldProduct",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "Published API Product name and version",
+                "placeholder": ""
+            },
+            {
+                "name": "apic.planMappings",
+                "label": "apic.planMappings",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "Subscription plan for published and to be published API Products",
+                "placeholder": ""
+            },
+            {
+                "name": "isFirst",
+                "label": "isFirst",
+                "pattern": "",
+                "type": "TEXT",
+                "required": false,
+                "description": "Indicator if component version is the first deployment in an Env. ",
+                "placeholder": ""
+            }
+        ],
+        "propSheetGroup": {"propSheets": [
+            {
+                "name": "custom",
+                "properties": []
+            },
+            {
+                "name": "template",
+                "properties": []
+            }
+        ]},
+        "processes": [{
+            "name": "Deploy API Product Def",
+            "description": "Deploy API Product Definition",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "components\/c99b07c4-e032-4748-8498-8c5e34143e93\/processes\/eedb274d-9600-45a8-93bd-dc499f8a5238",
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "Set Configuration Variable",
+                        "from": "Login",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Publish API Product Definitions",
+                        "from": "envType",
+                        "type": "VALUE",
+                        "value": "upper"
+                    },
+                    {
+                        "to": "Logout",
+                        "from": "isVersion",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "envType",
+                        "from": "isFirst",
+                        "type": "VALUE",
+                        "value": "false"
+                    },
+                    {
+                        "to": "isFirst",
+                        "from": "APIC Publish or Replace",
+                        "type": "VALUE",
+                        "value": "*major*"
+                    },
+                    {
+                        "to": "Logout",
+                        "from": "Publish API Product Definitions",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "APIC Publish or Replace",
+                        "from": "Publish API Product Definitions in Stage",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Login",
+                        "from": "Set Permissions",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download API YAML Files",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "RemovePreviousVersion",
+                        "from": "isVersion",
+                        "type": "VALUE",
+                        "value": "*"
+                    },
+                    {
+                        "to": "Set Permissions",
+                        "from": "Download API YAML Files",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "isVersion",
+                        "from": "Replace Product in Catalog",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "3f70e9e438dca6754caa53aa71c9d0",
+                        "from": "Logout",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Replace Product in Catalog",
+                        "from": "APIC Publish or Replace",
+                        "type": "VALUE",
+                        "value": "*minor*\n*bugfix*"
+                    },
+                    {
+                        "to": "Logout",
+                        "from": "RemovePreviousVersion",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Publish API Product Definitions in Stage",
+                        "from": "Set Configuration Variable",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Replace Product in Catalog",
+                        "from": "envType",
+                        "type": "VALUE",
+                        "value": "lower"
+                    },
+                    {
+                        "to": "Publish API Product Definitions",
+                        "from": "isFirst",
+                        "type": "VALUE",
+                        "value": "true"
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "Publish API Product Definitions in Stage",
+                        "x": -288.85226340183476,
+                        "y": 880,
+                        "h": 130,
+                        "w": 780
+                    },
+                    {
+                        "name": "Replace Product in Catalog",
+                        "x": 109.77097479154668,
+                        "y": 1600,
+                        "h": 130,
+                        "w": 660
+                    },
+                    {
+                        "name": "APIC Publish or Replace",
+                        "x": -151.0349137729902,
+                        "y": 1060,
+                        "h": 130,
+                        "w": 520
+                    },
+                    {
+                        "name": "isFirst",
+                        "x": -174.22453200403936,
+                        "y": 1240,
+                        "h": 130,
+                        "w": 350
+                    },
+                    {
+                        "name": "Publish API Product Definitions",
+                        "x": -650.2290252084533,
+                        "y": 1600,
+                        "h": 130,
+                        "w": 730
+                    },
+                    {
+                        "name": "envType",
+                        "x": -135.22902520845332,
+                        "y": 1420,
+                        "h": 130,
+                        "w": 390
+                    },
+                    {
+                        "name": "Logout",
+                        "x": -408.9985564584533,
+                        "y": 2140,
+                        "h": 130,
+                        "w": 310
+                    },
+                    {
+                        "name": "RemovePreviousVersion",
+                        "x": -225.22902520845332,
+                        "y": 1960,
+                        "h": 130,
+                        "w": 630
+                    },
+                    {
+                        "name": "3f70e9e438dca6754caa53aa71c9d0",
+                        "x": -343.9985564584533,
+                        "y": 2320,
+                        "h": 110,
+                        "w": 180
+                    },
+                    {
+                        "name": "Set Permissions",
+                        "x": -103.3678427651364,
+                        "y": 340,
+                        "h": 130,
+                        "w": 380
+                    },
+                    {
+                        "name": "Set Configuration Variable",
+                        "x": -225.24182374091242,
+                        "y": 700,
+                        "h": 130,
+                        "w": 640
+                    },
+                    {
+                        "name": "isVersion",
+                        "x": -338.5623585417867,
+                        "y": 1780,
+                        "h": 130,
+                        "w": 860
+                    },
+                    {
+                        "name": "Download API YAML Files",
+                        "x": -185,
+                        "y": 160,
+                        "h": 130,
+                        "w": 540
+                    },
+                    {
+                        "name": "Login",
+                        "x": -55.10352829540909,
+                        "y": 520,
+                        "h": 130,
+                        "w": 290
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "3461b2e8-1b97-4872-bada-a7d22f41392a",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "3f70e9e438dca6754caa53aa71c9d0",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": true,
+                        "impersonationUseSudo": false,
+                        "commandName": "Login",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "username": "${p:apic.username}",
+                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keywndf|DUfj38wpNvcM2nHnnMGFmA==|Flv6rlAli3QU5at2Xke2QQ==}",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Login",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "commandName": "Logout",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Logout",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": true,
+                        "impersonationUseSudo": false,
+                        "commandName": "Set Configuration Variable",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "organization": "${p:apic.organization}",
+                            "type": "catalog",
+                            "name": "${p:apic.catalog}",
+                            "local": "false",
+                            "global": "false",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Set Configuration Variable",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "commandName": "Download Artifacts",
+                        "pluginName": "IBM UrbanCode Deploy Versioned File Storage",
+                        "pluginVersion": 27,
+                        "properties": {
+                            "directoryOffset": ".",
+                            "artifactSetBaseDir": "",
+                            "fileIncludePatterns": "**\/*",
+                            "fileExcludePatterns": "",
+                            "syncMode": "true",
+                            "fullVerification": "true",
+                            "setFileExecuteBits": "false",
+                            "verifyFileIntegrity": "false",
+                            "versionId": "${p:version.id}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "resId": "${p:resource.id}",
+                            "charset": "",
+                            "label": ""
+                        },
+                        "type": "plugin",
+                        "name": "Download API YAML Files",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": true,
+                        "impersonationUseSudo": false,
+                        "commandName": "Publish API Product Definitions",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "organization": "${p:apic.organization}",
+                            "catalog": "${p:apic.catalog}",
+                            "definition": "${p:apic.definition}",
+                            "stage": "true",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Publish API Product Definitions in Stage",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": true,
+                        "impersonationUseSudo": false,
+                        "commandName": "Publish API Product Definitions",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "organization": "${p:apic.organization}",
+                            "catalog": "${p:apic.catalog}",
+                            "definition": "${p:apic.definition}",
+                            "stage": "false",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Publish API Product Definitions",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": true,
+                        "impersonationUseSudo": false,
+                        "commandName": "Replace Product in Catalog",
+                        "pluginName": "IBM API Connect",
+                        "pluginVersion": 4,
+                        "properties": {
+                            "server": "${p:apic.server}",
+                            "organization": "${p:apic.organization}",
+                            "catalog": "${p:apic.catalog}",
+                            "oldProduct": "${p:version.prop.name}",
+                            "newProduct": "${p:version.name}",
+                            "plans": "${p:apic.planMappings}",
+                            "apicPath": "${p?:apic.path}"
+                        },
+                        "type": "plugin",
+                        "name": "Replace Product in Catalog",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "change.type",
+                        "type": "switch",
+                        "name": "APIC Publish or Replace",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "commandName": "Run Application Process",
+                        "pluginName": "IBM UrbanCode Deploy Applications",
+                        "pluginVersion": 70,
+                        "properties": {
+                            "application": "${p:application.name}",
+                            "process": "zRemoveFromInventory",
+                            "environment": "${p:environment.name}",
+                            "snapshot": "",
+                            "onlyChanged": "false",
+                            "componentVersions": "${p:component.name}:${p:environment\/version.prop.name}",
+                            "waitForProcess": "true"
+                        },
+                        "type": "plugin",
+                        "name": "RemovePreviousVersion",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "commandName": "Shell",
+                        "pluginName": "Shell",
+                        "pluginVersion": 7,
+                        "properties": {
+                            "directoryOffset": ".",
+                            "shellInterpreter": "",
+                            "scriptBody": "\/bin\/bash -c 'chmod 777 *.yaml'\nwhoami\n# set DEBUG=*\n# export LOG_LEVEL=debug\n# touch acme-bank-product.yaml",
+                            "runAsDaemon": "false",
+                            "outputFile": ""
+                        },
+                        "type": "plugin",
+                        "name": "Set Permissions",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:environment\/version.prop.name}",
+                        "type": "switch",
+                        "name": "isVersion",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "env.type",
+                        "type": "switch",
+                        "name": "envType",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "isFirst",
+                        "type": "switch",
+                        "name": "isFirst",
+                        "children": []
+                    }
+                ]
+            }
+        }],
+        "configTemplates": [],
+        "genericProcesses": [],
+        "teamMappings": [],
+        "tags": [{
+            "id": "bc95be95-e6fd-4a4a-87e9-ee4372aa8751",
+            "name": "api-connect-component",
+            "color": "#A91024",
+            "description": "",
+            "objectType": "Component"
+        }]
+    }],
+    "environments": [
+        {
+            "name": "Sandbox",
+            "description": "",
+            "color": "#00B2EF",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": false,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 0,
+            "active": true,
+            "propSheet": {"properties": [
+                {
+                    "name": "env.type",
+                    "value": "lower",
+                    "description": "",
+                    "secure": false
+                },
+                {
+                    "name": "version.prop.name",
+                    "value": "${p?:currentVersion.name}",
+                    "description": "",
+                    "secure": false
+                }
+            ]},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [{
+                "path": "\/acme-bank\/sandbox",
+                "id": "c727509b-a6cb-4987-9623-6712f2546355"
+            }],
+            "componentPropSheets": [{
+                "properties": [
+                    {
+                        "name": "apic.catalog",
+                        "value": "sb",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.definition",
+                        "value": "acme-bank-product.yaml",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.organization",
+                        "value": "hollischuihotmailcom-dev",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.path",
+                        "value": "\/home\/devops\/Downloads\/node-v6.9.4-linux-x64\/bin\/apic",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.server",
+                        "value": "us.apiconnect.ibmcloud.com",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.username",
+                        "value": "hollis.chui@hotmail.com",
+                        "description": "",
+                        "secure": false
+                    }
+                ],
+                "componentName": "acme-bank"
+            }],
+            "versionConditions": [],
+            "teamMappings": []
+        },
+        {
+            "name": "UAT",
+            "description": "",
+            "color": "#FFCF01",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": false,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 1,
+            "active": true,
+            "propSheet": {"properties": [
+                {
+                    "name": "env.type",
+                    "value": "upper",
+                    "description": "",
+                    "secure": false
+                },
+                {
+                    "name": "version.prop.name",
+                    "value": "${p?:version\/apic.oldProduct}",
+                    "description": "",
+                    "secure": false
+                }
+            ]},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [{
+                "path": "\/acme-bank\/UAT",
+                "id": "dfc568ba-67df-44d4-8546-099b17d95216"
+            }],
+            "componentPropSheets": [{
+                "properties": [
+                    {
+                        "name": "apic.catalog",
+                        "value": "uat",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.definition",
+                        "value": "acme-bank-product.yaml",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.organization",
+                        "value": "hollischuihotmailcom-dev",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.path",
+                        "value": "\/home\/devops\/Downloads\/node-v6.9.4-linux-x64\/bin\/apic",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.server",
+                        "value": "us.apiconnect.ibmcloud.com",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.username",
+                        "value": "hollis.chui@hotmail.com",
+                        "description": "",
+                        "secure": false
+                    }
+                ],
+                "componentName": "acme-bank"
+            }],
+            "versionConditions": [["release"]],
+            "teamMappings": []
+        },
+        {
+            "name": "PROD",
+            "description": "",
+            "color": "#17AF4B",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": false,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 2,
+            "active": true,
+            "propSheet": {"properties": [
+                {
+                    "name": "env.type",
+                    "value": "upper",
+                    "description": "",
+                    "secure": false
+                },
+                {
+                    "name": "version.prop.name",
+                    "value": "${p?:version\/apic.oldProduct}",
+                    "description": "",
+                    "secure": false
+                }
+            ]},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [{
+                "path": "\/acme-bank\/PROD",
+                "id": "6b969af4-a9ce-40d8-8451-8548952e5041"
+            }],
+            "componentPropSheets": [{
+                "properties": [
+                    {
+                        "name": "apic.catalog",
+                        "value": "prod",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.definition",
+                        "value": "acme-bank-product.yaml",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.organization",
+                        "value": "hollischuihotmailcom-dev",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.path",
+                        "value": "\/home\/devops\/Downloads\/node-v6.9.4-linux-x64\/bin\/apic",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.server",
+                        "value": "us.apiconnect.ibmcloud.com",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "apic.username",
+                        "value": "hollis.chui@hotmail.com",
+                        "description": "",
+                        "secure": false
+                    }
+                ],
+                "componentName": "acme-bank"
+            }],
+            "versionConditions": [[
+                "release",
+                "tested"
+            ]],
+            "teamMappings": []
+        }
+    ],
+    "statuses": [
+        {
+            "type": "VERSION",
+            "name": "tested",
+            "description": "",
+            "deleted": false,
+            "color": "#00B2EF",
+            "unique": false
+        },
+        {
+            "type": "VERSION",
+            "name": "release",
+            "description": "",
+            "deleted": false,
+            "color": "#008A52",
+            "unique": false
+        }
+    ],
+    "processes": [
+        {
+            "name": "acme-bank",
+            "description": "",
+            "inventoryManagementType": "AUTOMATIC",
+            "offlineAgentHandling": "PRE_EXECUTION_CHECK",
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "af8dfb47886decf02ae897f88fbe30",
+                        "from": "56fc63cf0f3f15b4a1af5aed57d7d6",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "56fc63cf0f3f15b4a1af5aed57d7d6",
+                        "type": "ALWAYS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "af8dfb47886decf02ae897f88fbe30",
+                        "x": -5,
+                        "y": 420,
+                        "h": 80,
+                        "w": 120
+                    },
+                    {
+                        "name": "56fc63cf0f3f15b4a1af5aed57d7d6",
+                        "x": -54,
+                        "y": 126.5,
+                        "h": 70,
+                        "w": 200
+                    }
+                ],
+                "layoutMode": "manual",
+                "type": "graph",
+                "name": "87c6546c-ca98-45d1-b9f4-c53740d7d10b",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "af8dfb47886decf02ae897f88fbe30",
+                        "children": []
+                    },
+                    {
+                        "componentName": "acme-bank",
+                        "properties": [
+                            {
+                                "name": "maxIteration",
+                                "value": "-1"
+                            },
+                            {
+                                "name": "runOnlyOnFirst",
+                                "value": "false"
+                            },
+                            {
+                                "name": "failFast",
+                                "value": "false"
+                            }
+                        ],
+                        "type": "componentEnvironmentIterator",
+                        "name": "56fc63cf0f3f15b4a1af5aed57d7d6",
+                        "children": [{
+                            "componentName": "acme-bank",
+                            "status": "Active",
+                            "type": "inventoryVersionDiff",
+                            "name": "e989c535-95c8-4d86-8aee-513ca7d2a9c7",
+                            "children": [{
+                                "componentProcessName": "Deploy API Product Def",
+                                "componentName": "acme-bank",
+                                "allowFailure": false,
+                                "properties": {},
+                                "type": "componentProcess",
+                                "name": "API_Product",
+                                "children": []
+                            }]
+                        }]
+                    }
+                ]
+            },
+            "propDefs": [],
+            "versionPresets": []
+        },
+        {
+            "name": "zRemoveFromInventory",
+            "description": "",
+            "inventoryManagementType": "AUTOMATIC",
+            "offlineAgentHandling": "PRE_EXECUTION_CHECK",
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "f2f042ce8158d8b6a3be23496fc10f",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "e6119a1ee0e7ceed3b7c630982e943",
+                        "from": "f2f042ce8158d8b6a3be23496fc10f",
+                        "type": "SUCCESS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "f2f042ce8158d8b6a3be23496fc10f",
+                        "x": -65,
+                        "y": 180,
+                        "h": 50,
+                        "w": 220
+                    },
+                    {
+                        "name": "e6119a1ee0e7ceed3b7c630982e943",
+                        "x": -5,
+                        "y": 350,
+                        "h": 80,
+                        "w": 120
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "f87d54d5-acec-46a8-aaa6-95f641bc78d6",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "e6119a1ee0e7ceed3b7c630982e943",
+                        "children": []
+                    },
+                    {
+                        "componentName": "acme-bank",
+                        "properties": [
+                            {
+                                "name": "maxIteration",
+                                "value": "-1"
+                            },
+                            {
+                                "name": "runOnlyOnFirst",
+                                "value": "false"
+                            },
+                            {
+                                "name": "failFast",
+                                "value": "false"
+                            }
+                        ],
+                        "type": "componentEnvironmentIterator",
+                        "name": "f2f042ce8158d8b6a3be23496fc10f",
+                        "children": [{
+                            "componentName": "acme-bank",
+                            "component": {
+                                "id": "c99b07c4-e032-4748-8498-8c5e34143e93",
+                                "securityResourceId": "46073dd2-c781-4c0a-bbbb-d428ccb61291",
+                                "name": "acme-bank",
+                                "description": "Acme Bank API Product Definition",
+                                "created": 1488858537808,
+                                "componentType": "STANDARD",
+                                "ignoreQualifiers": 0,
+                                "importAutomatically": false,
+                                "useVfs": true,
+                                "active": true,
+                                "integrationFailed": false,
+                                "deleted": false,
+                                "defaultVersionType": "INCREMENTAL",
+                                "cleanupDaysToKeep": 0,
+                                "cleanupCountToKeep": 0,
+                                "templateVersion": -1,
+                                "tags": [{
+                                    "id": "bc95be95-e6fd-4a4a-87e9-ee4372aa8751",
+                                    "name": "api-connect-component",
+                                    "color": "#A91024",
+                                    "description": "",
+                                    "objectType": "Component"
+                                }],
+                                "templateTags": [],
+                                "user": "admin"
+                            },
+                            "status": "Active",
+                            "selectionType": "SELECTED",
+                            "type": "uninstallAllVersionsIterator",
+                            "name": "8a2c0541e2b54d5f368fdb2a78f453",
+                            "children": [{
+                                "componentProcessName": "RemoveFromInventory",
+                                "componentName": "acme-bank",
+                                "allowFailure": false,
+                                "properties": {},
+                                "type": "componentProcess",
+                                "name": "Uninstall acme-bank",
+                                "children": []
+                            }]
+                        }]
+                    }
+                ]
+            },
+            "propDefs": [],
+            "versionPresets": []
+        }
+    ],
+    "genericProcesses": [],
+    "teamMappings": [],
+    "tags": [{
+        "id": "b54caafb-b3cf-4630-a7bb-03dd0b230f73",
+        "name": "api-connect-app",
+        "color": "#D9182D",
+        "description": "",
+        "objectType": "Application"
+    }]
+}
