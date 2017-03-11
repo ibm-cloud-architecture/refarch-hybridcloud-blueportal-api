@@ -132,8 +132,6 @@ Click this link to experience this implementation using our cloud hosted lab. A 
     - APIC Tooklit path
     - APIC Server Org, Catalog ID and Product definition
 
-(see below)
-
 ![UCD Env Prop](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Env_Prop.png)
 
 ##### Step 6: Publish API and Product to API Connect
