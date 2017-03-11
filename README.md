@@ -1,75 +1,139 @@
-#Managing APIs with DevOps in a Hybrid Architecture#
+# Hybrid API DevOps – Activating APIs from Systems of Record (SoRs)
 
-This project provides a reference implementation for managing the lifecycle of APIs using IBM UrbanCode Deploy and the API Connect service on IBM Bluemix.  
+A DevOps platform for APIs provides the ability to streamline and automate the process of developing, building, testing and deploying APIs onto the API runtime cloud platform either when these APIs are organically developed or when they are exposed endpoints to existing backend services.
 
-###Overview - DevOps with IBM UrbanCode Deploy###
+![Architecture](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/HybridCloud_API_Architecture.png)
 
-Any DevOps practitioner will aim to simplify the above API lifecycle management through automation.  This will improve the speed, consistency and quality of the environments and builds.  It will also provide support continuous integration and continuous delivery.  
+## Architecture Overview
 
-IBM UrbanCode Deploy can be leveraged to automate the deployment of APIs using the API Connect Plug-in.  The API Connect Plug-in communicates with the API Connect service using the API Connect (apic) command line toolkit.  The toolkit can be installed using the Node Package Manager (npm).  
+Business leaders recognize a need for a new consumer-accessible service and work with their developers to design the solution. They identify a need for access to Systems of Record (SoRs) as part of the solution. Enterprise developers identify the required facilities and use API management and artifacts from their SoR development processes to expose the needed APIs internally and for use by System of Engagement (SoEs) developers in the Cloud. Having exposed these APIs through their Hybrid Cloud interface, both teams are now able to undertake their particular development processes with relative independence. Notably SoE developers can use agile DevOps methodologies to rapidly develop channel interaction services while relying on the support of stable SoR system APIs.
 
-The deployment activities will be defined in IBM UrbanCode Application and Component processes and the processes will be executed by IBM UrbanCode Deploy Agent(s), which are small processes that does the work on behalf of the controller servers.  
+### Architecture Component Tooling
 
+The specific tools that are used to implement this reference architecture&#39;s components include:
 
-Figure 1: DevOps for API Connect using IBM UrbanCode Deploy
+- SCM: GitHub
+- Build: Jenkins
+- Deploy: IBM UrbanCode Deploy (UCD)
+- SoR Runtime for API IBM Integration Bus (IIB)
+- SoR API Management:  IBM API Connect (APIC)
 
-Figure 1 shows the overall workflow.  A component process defined in IBM UrbanCode Deploy will stage, publish and/or replace a published API definition(s) in the Sandbox, UAT and/or PROD Catalogs.  Once the publishing is complete, developers can go to the developer portal(s) to subscribe to and consume the APIs.  
+## Automating API deployment using a governance model
 
-Before we proceed further, let’s define the different types of API changes and the corresponding Product / API definition version increment rules for Product / API definitions.  
+New or change to existing services and APIs are delivered continuously to a development pipeline. The changes are then handled to support a change and governance model to ensure API subscribers can easily consume the changes. This is critical when the changes delivered require any changes to the end-user subscriber.  In order to support this governance model, we are following the processes outlined in the diagram below:
 
-   •	For major (API breaking) changes, defined as a change impacting the API endpoints or major changes to the API implementation, this will result in a major version increment (ie. 1.0.0 -> 2.0.0).  The new version of the API will be published to the UAT and PROD catalogs and the subscriptions will be manually migrated.  Once all the subscriptions are migrated, the older version of the API will be set to a “retired” state. 
-   •	For minor (non-breaking) changes, there will be a minor version increment (ie. 1.0.0 -> 1.1.0).  The new version of the API will replace the existing version in the UAT and PROD catalogs.  The subscriptions will be automatically migrated and the older version of the API will be set to the “retired” state. 
-   •	For bug fixes and/or patches to the API implementation that do not impact the API interface, no version changes to the API are expected.
+![API Governance Model](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/API_Governance_Model.png)
 
-###API Connect and IBM UrbanCode Deploy Configuration###
+This diagram shows how API implementations and the information published to APIC should be automated to ensure the release governance model is supported. The different types of API changes and the corresponding Product / API definition version increment rules for Product / API definitions include:
 
-This section explains the relationship between IBM UrbanCode Deploy and API Connect, and specifies the assumptions and requirements for supporting the API lifecycle management.  
+- For major (API breaking) changes, defined as a change impacting the API endpoints or major changes to the API implementation, this will result in a major version increment (ie. 1.0.0 -&gt; 2.0.0). The new version of the API will be published to the UAT and PROD catalogs and the subscriptions will be manually migrated. Once all the subscriptions are migrated, the older version of the API will be set to a &quot;retired&quot; state.
+- For minor (non-breaking) changes, there will be a minor version increment (ie. 1.0.0 -&gt; 1.1.0). The new version of the API will replace the existing version in the UAT and PROD catalogs. The subscriptions will be automatically migrated and the older version of the API will be set to the &quot;retired&quot; state.
+- For bug fixes and/or patches to the API implementation that do not impact the API interface, no version changes to the API are expected.
+
+## Deployment Processes
+
+This diagram reveals the overall DevOps workflow for API implementation and APIC publication using this architecture.  The developer&#39;s role is to create code changes for the implementation as well as the yaml files reflecting the API data. These changes are committed to source control. The developer will then continuous coding and wait for any feedback from the delivery pipeline indicating success or failure to the build, scan, deploy or test portions of their DevOps process. The API management or API product owner delivers changes to their product yaml files reflecting any product level changes and waits for feedback, similarly.
+
+Changes are promoted automatically using a defined set of business rules or through manual activation of the automation. In each case, a promotion to a new environment/catalog includes the latest versions of API code, yaml and the deployment processes. This provides a means to mature the process through testing and validation.
+
+![Deployment Sample](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Deployment_Sample.png)
+
+## API Connect and IBM UrbanCode Deploy Configuration
+
+This section explains the relationship between IBM UrbanCode Deploy and API Connect, and specifies the assumptions and requirements for supporting the API lifecycle management.
 
 The following table provides a mapping between API Connect and IBM UrbanCode Deploy objects.
 
-API Connect	IBM UrbanCode Deploy	Description
-Catalog	Environment	A UCD environment represents an API Connect Catalog.  Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment.
-Product	Component	One UCD component represents one API Product within API Connect.  The component stores the version artifacts that represent the version of the API Product.
-The API Product contains the definition of one or more APIs.    
-API Implementation	Component(s)	A UCD Component represents an API Implementation. Each API defined in the Product has a corresponding implementation. The source code that provides the implementation of the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages.  
-Each API implementation is represented by a UCD component.  This component stores the version artifacts that results from the build of the API’s implementation source code.  
+| **API Connect** | **IBM UrbanCode Deploy** | **Description** |
+| --- | --- | --- |
+| Catalog | Environment | A UCD environment represents an API Connect Catalog. Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment. |
+| Product | Component | One UCD component represents one API Product within API Connect. The component stores the version artifacts that represent the version of the API Product. The API Product contains the definition of one or more APIs. |
+| API Implementation | Component(s) | A UCD Component represents an API Implementation. Each API defined in the Product has a corresponding implementation. The source code that provides the implementation of the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages. Each API implementation is represented by a UCD component. This component stores the version artifacts that results from the build of the API&#39;s implementation source code. |
 
-#####Assumptions#####
-   * When creating the product component version in the Build system (i.e. Jenkins, Rational Team Concert, etc) a set of version properties are required to communicate to IBM UrbanCode Deploy as follows:   
-   * The type of change (major | minor | patch) 
-   * The version name that is to be replaced by this version.   
-   * The subscription plan that the product component version supports
-   * When there is a major change, a new branch in the SCM system (Git, Rational Team Concert, etc) is created for that stream.  A major change is defined as an impact on the API endpoints or major changes to the API implementation.  
-   * To deploy to the PROD UCD Environment, the product and application component versions require a status of TESTED set on them in order for IBM UrbanCode Deploy to execute the deployment process.  This status can be applied automatically with automated testing implemented in IBM UrbanCode Deploy
-   * The API Connect catalog (represented by the IBM UrbanCode environment) may support multiple product version.  For ease of use, the solution outlined in this paper will constrain the major releases per product version to two (N and N+1). 
+## Implement and Explore this Reference Architecture
 
+### Repository Files
 
-###Implementation Overview###
+This repository contains the instructions, configuration files and example APIC yaml files to implement the architecture using the products noted above. The are two ways in which you can explore the architecture 1) using IBMs on demand lab environment or 2) implementing in your own environment. To accelerate your experience, this repository contains the assets to quickly establish an environment, implement the architecture and a guide to exploring the results. This repository contains:
 
-Run the reference implementation in a hybrid environment using a local instance of IBM UrbanCode Deploy and IBM Cloud
-The following example implementation will walk you through the set up and configuration to manage APIs in a hybrid architecture. 
+- Jenkins job archive containing build job for APIC content: acme-bank.tar.Z
+- API Product Definition YAML: acme-bank-product.yaml
+- API Definition YAML: acme-bank.yaml
+- IBM UrbanCode Deploy Application JSON: /ucd-application/acme-bank.json
+- Lab for exploring the architecture  HybridDevOpsForAPIC.pdf
 
-Note detailed instructions to come!
+### Options to implement the architecture
 
-Step 1: Environment Setup
-Pre-requisites
-   *	Install IBM UrbanCode Deploy 6.2.2 or later.
-   * 	Install the IBM UrbanCode Deploy - API Connect Plug-in. 
-   * Install Jenkins 2.19 or later.
-   * Install the IBM UrbanCode Deploy plugi
-   * Install the GitHub plug
-   * Install Node.js version 4.x. 
-   * Install API Connect Toolkit using NPM
-   * Register for a Bluemix account.
+#### 1. Run the reference architecture in a IBM hosted lab environment.
 
-Step 2: Configure Bluemix space(s), provision IBM API Connect service and set up 3 Catalogs (sandbox, UAT and production). 
+Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
 
-Step 3: Set up two versions of a sample API implementation and the corresponding API definitions (sourced in GitHub). 
+- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
 
-Step 4: Configure the integration between GitHub and Jenkins. 
+#### 2. Run the reference architecture in your local environment.
 
-Step 5: Configure the integration between Jenkins and IBM UrbanCode Deploy
+##### Step 1: Setup your local environment  
 
-Step 6: Configure IBM UrbanCode Deploy. 
+- Register for a [Bluemix](https://bluemix.net/registration) account
+- [Install Node.js v4.x](https://nodejs.org/en/)
+- [Install Git](https://git-scm.com/)
+- [Install shyaml](https://github.com/0k/shyaml) (YAML parser)
+- [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
+- [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
+- [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
+- [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) – or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
+- [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
+- [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
 
-Step 7: Automate the publishing of the API definitions to the API Connect service on IBM Bluemix when the API definitions are changed.
+##### Step 2: Create a repository clone
+
+- Clone this GIitHub repository:
+  - [https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git)
+
+##### Step 3: Create API Connect Catalogs
+
+- Use the [General instructions to create API Connect catalogs:](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.apionprem.doc/create_env.html)
+
+- andbox (default Catalog)
+- UAT
+- PROD
+
+![API Connect Catalogs](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/APIC_Catalogs.png)
+
+##### Step 4: Configure pipeline tools and integrations
+
+- [Create Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
+  - Copy the file&quot; /Jenkins/job/acme-bank.tar.Z&quot;  into the file system where Jenkins is installed.
+  - Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
+  - Navigate to the Jenkins feature Manage Jenkins &gt; Configure Jenkins and run &quot;reload from disk&quot; to automatically create the acme bank job.
+
+- [Configure Jenkins and GitHub integration](https://jenkins.io/solutions/github/)
+  - Add a webhook to the GitHub repository using the Jenkins URL (ie https://&lt;Jenkins server&gt;:&lt;port&gt;/github-webhook/).
+
+![Git Webhook](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/GitHub_Repo_Webhook.png)
+
+- [Configure IBM UrbanCode Deploy and Jenkins integration](http://www-01.ibm.com/support/docview.wss?uid=swg21664334)
+  - Add the UCD server details to the Jenkins&#39; UCD configuration page and test the connection.
+
+![Jenkins UCD Config](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Jenkins_UCD_Config.png)
+
+##### Step 5: Configure IBM UrbanCode Deploy
+
+- [Import configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
+  - Locate the file /ucd/application/acme-bank.json and import it to the server file system where UCD is installed.
+  - Locate the UCD import feature in Applications &gt; Import. And run the import of the acme-bank.json.
+
+![UCD JSON Import](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Import_JSON.png)
+
+- Update Environment Information
+  - Update each UCD Environment properties to reference corresponding API Connect catalog properties.
+    - Enter the URL to APIC you are using
+    - APIC Username
+    - APIC Tooklit path
+    - APIC Server Org, Catalog ID and Product definition
+
+![UCD Env Prop](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Env_Prop.png)
+
+##### Step 6: Publish API and Product to API Connect
+
+- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository  and use the steps outlined to explore this architecture.
