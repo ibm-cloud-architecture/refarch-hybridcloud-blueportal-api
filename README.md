@@ -66,7 +66,7 @@ This repository contains the instructions, configuration files and example APIC 
 
 #### 1. Run the reference architecture in a IBM hosted lab environment.
 
-Click this link to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
+Click this [link](https://bluedemos.com/app/home/session/578/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
 
 - Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
 
