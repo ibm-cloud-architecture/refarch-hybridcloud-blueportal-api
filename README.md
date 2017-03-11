@@ -64,20 +64,20 @@ This repository contains the instructions, configuration files and example APIC 
 
 ### Options to implement the architecture
 
-#### 1. **Run the reference architecture in a IBM hosted lab environment.
+#### 1. Run the reference architecture in a IBM hosted lab environment.
 
 Click this link to experience this implementation using our cloud hosted lab. A detailed set of instructions will be available to begin your journey. No installation is required as this lab runs in a public cloud.
 
 - Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
 
-#### 2. **Run the reference architecture in your local environment.
+#### 2. Run the reference architecture in your local environment.
 
-##### Step 1:  Setup your local environment  
+##### Step 1: Setup your local environment  
 
 - Register for a [Bluemix](https://bluemix.net/registration) account
-- Install [js](https://nodejs.org/en/) v4.x
-- Install [Git](https://git-scm.com/)
-- Install [shyaml](https://github.com/0k/shyaml) (YAML parser)
+- [Install Node.js v4.x](https://nodejs.org/en/)
+- [Install Git](https://git-scm.com/)
+- [Install shyaml](https://github.com/0k/shyaml) (YAML parser)
 - [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
 - [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
 - [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
@@ -112,7 +112,7 @@ Click this link to experience this implementation using our cloud hosted lab. A 
 
 ![Git Webhook](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/GitHub_Repo_Webhook.png)
 
-- **??** [Configure IBM UrbanCode Deploy and Jenkins integration](http://www-01.ibm.com/support/docview.wss?uid=swg21664334)
+- [Configure IBM UrbanCode Deploy and Jenkins integration](http://www-01.ibm.com/support/docview.wss?uid=swg21664334)
   - Add the UCD server details to the Jenkins&#39; UCD configuration page and test the connection.
 
 ![Jenkins UCD Config](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Jenkins_UCD_Config.png)
