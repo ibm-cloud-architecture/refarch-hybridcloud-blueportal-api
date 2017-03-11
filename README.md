@@ -83,7 +83,7 @@ Click this link to experience this implementation using our cloud hosted lab. A 
 - [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
 - [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) – or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
 - [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
-- [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins)) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
+- [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
 
 ##### Step 2: Create a repository clone
 
