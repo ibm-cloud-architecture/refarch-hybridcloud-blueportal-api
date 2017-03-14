@@ -234,8 +234,38 @@
             "rootActivity": {
                 "edges": [
                     {
-                        "to": "Set Configuration Variable",
-                        "from": "Login",
+                        "to": "Logout",
+                        "from": "isVersion",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "RemovePreviousVersion",
+                        "from": "isVersion",
+                        "type": "VALUE",
+                        "value": "*"
+                    },
+                    {
+                        "to": "isVersion",
+                        "from": "Replace Product in Catalog",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Publish API Product Definitions in Stage",
+                        "from": "Set Configuration Variable",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "3f70e9e438dca6754caa53aa71c9d0",
+                        "from": "Logout",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Logout",
+                        "from": "RemovePreviousVersion",
                         "type": "SUCCESS",
                         "value": ""
                     },
@@ -246,9 +276,21 @@
                         "value": "upper"
                     },
                     {
-                        "to": "Logout",
-                        "from": "isVersion",
+                        "to": "Replace Product in Catalog",
+                        "from": "APIC Publish or Replace",
                         "type": "VALUE",
+                        "value": "*minor*\n*bugfix*"
+                    },
+                    {
+                        "to": "isFirst",
+                        "from": "APIC Publish or Replace",
+                        "type": "VALUE",
+                        "value": "*major*"
+                    },
+                    {
+                        "to": "Login",
+                        "from": "Set Permissions",
+                        "type": "SUCCESS",
                         "value": ""
                     },
                     {
@@ -258,10 +300,27 @@
                         "value": "false"
                     },
                     {
-                        "to": "isFirst",
-                        "from": "APIC Publish or Replace",
+                        "to": "Set Configuration Variable",
+                        "from": "Login",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Set Permissions",
+                        "from": "Download API YAML Files",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Publish API Product Definitions",
+                        "from": "isFirst",
                         "type": "VALUE",
-                        "value": "*major*"
+                        "value": "true"
+                    },
+                    {
+                        "to": "Download API YAML Files",
+                        "type": "ALWAYS",
+                        "value": ""
                     },
                     {
                         "to": "Logout",
@@ -276,107 +335,13 @@
                         "value": ""
                     },
                     {
-                        "to": "Login",
-                        "from": "Set Permissions",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Download API YAML Files",
-                        "type": "ALWAYS",
-                        "value": ""
-                    },
-                    {
-                        "to": "RemovePreviousVersion",
-                        "from": "isVersion",
-                        "type": "VALUE",
-                        "value": "*"
-                    },
-                    {
-                        "to": "Set Permissions",
-                        "from": "Download API YAML Files",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "isVersion",
-                        "from": "Replace Product in Catalog",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "3f70e9e438dca6754caa53aa71c9d0",
-                        "from": "Logout",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Replace Product in Catalog",
-                        "from": "APIC Publish or Replace",
-                        "type": "VALUE",
-                        "value": "*minor*\n*bugfix*"
-                    },
-                    {
-                        "to": "Logout",
-                        "from": "RemovePreviousVersion",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Publish API Product Definitions in Stage",
-                        "from": "Set Configuration Variable",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
                         "to": "Replace Product in Catalog",
                         "from": "envType",
                         "type": "VALUE",
                         "value": "lower"
-                    },
-                    {
-                        "to": "Publish API Product Definitions",
-                        "from": "isFirst",
-                        "type": "VALUE",
-                        "value": "true"
                     }
                 ],
                 "offsets": [
-                    {
-                        "name": "Publish API Product Definitions in Stage",
-                        "x": -288.85226340183476,
-                        "y": 880,
-                        "h": 130,
-                        "w": 780
-                    },
-                    {
-                        "name": "Replace Product in Catalog",
-                        "x": 109.77097479154668,
-                        "y": 1600,
-                        "h": 130,
-                        "w": 660
-                    },
-                    {
-                        "name": "APIC Publish or Replace",
-                        "x": -151.0349137729902,
-                        "y": 1060,
-                        "h": 130,
-                        "w": 520
-                    },
-                    {
-                        "name": "isFirst",
-                        "x": -174.22453200403936,
-                        "y": 1240,
-                        "h": 130,
-                        "w": 350
-                    },
-                    {
-                        "name": "Publish API Product Definitions",
-                        "x": -650.2290252084533,
-                        "y": 1600,
-                        "h": 130,
-                        "w": 730
-                    },
                     {
                         "name": "envType",
                         "x": -135.22902520845332,
@@ -385,32 +350,11 @@
                         "w": 390
                     },
                     {
-                        "name": "Logout",
-                        "x": -408.9985564584533,
-                        "y": 2140,
+                        "name": "Login",
+                        "x": -55.10352829540909,
+                        "y": 520,
                         "h": 130,
-                        "w": 310
-                    },
-                    {
-                        "name": "RemovePreviousVersion",
-                        "x": -225.22902520845332,
-                        "y": 1960,
-                        "h": 130,
-                        "w": 630
-                    },
-                    {
-                        "name": "3f70e9e438dca6754caa53aa71c9d0",
-                        "x": -343.9985564584533,
-                        "y": 2320,
-                        "h": 110,
-                        "w": 180
-                    },
-                    {
-                        "name": "Set Permissions",
-                        "x": -103.3678427651364,
-                        "y": 340,
-                        "h": 130,
-                        "w": 380
+                        "w": 290
                     },
                     {
                         "name": "Set Configuration Variable",
@@ -420,11 +364,39 @@
                         "w": 640
                     },
                     {
-                        "name": "isVersion",
-                        "x": -338.5623585417867,
-                        "y": 1780,
+                        "name": "Publish API Product Definitions",
+                        "x": -650.2290252084533,
+                        "y": 1600,
                         "h": 130,
-                        "w": 860
+                        "w": 730
+                    },
+                    {
+                        "name": "Replace Product in Catalog",
+                        "x": 109.77097479154668,
+                        "y": 1600,
+                        "h": 130,
+                        "w": 660
+                    },
+                    {
+                        "name": "Publish API Product Definitions in Stage",
+                        "x": -288.85226340183476,
+                        "y": 880,
+                        "h": 130,
+                        "w": 780
+                    },
+                    {
+                        "name": "3f70e9e438dca6754caa53aa71c9d0",
+                        "x": -343.9985564584533,
+                        "y": 2320,
+                        "h": 110,
+                        "w": 180
+                    },
+                    {
+                        "name": "Logout",
+                        "x": -408.9985564584533,
+                        "y": 2140,
+                        "h": 130,
+                        "w": 310
                     },
                     {
                         "name": "Download API YAML Files",
@@ -434,16 +406,44 @@
                         "w": 540
                     },
                     {
-                        "name": "Login",
-                        "x": -55.10352829540909,
-                        "y": 520,
+                        "name": "Set Permissions",
+                        "x": -103.3678427651364,
+                        "y": 340,
                         "h": 130,
-                        "w": 290
+                        "w": 380
+                    },
+                    {
+                        "name": "APIC Publish or Replace",
+                        "x": -151.0349137729902,
+                        "y": 1060,
+                        "h": 130,
+                        "w": 520
+                    },
+                    {
+                        "name": "RemovePreviousVersion",
+                        "x": -225.22902520845332,
+                        "y": 1960,
+                        "h": 130,
+                        "w": 630
+                    },
+                    {
+                        "name": "isVersion",
+                        "x": -338.5623585417867,
+                        "y": 1780,
+                        "h": 130,
+                        "w": 860
+                    },
+                    {
+                        "name": "isFirst",
+                        "x": -174.22453200403936,
+                        "y": 1240,
+                        "h": 130,
+                        "w": 350
                     }
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "3461b2e8-1b97-4872-bada-a7d22f41392a",
+                "name": "a669351e-2a55-412f-8c67-07bd33b14209",
                 "children": [
                     {
                         "type": "finish",
@@ -461,7 +461,7 @@
                         "properties": {
                             "server": "${p:apic.server}",
                             "username": "${p:apic.username}",
-                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keywndf|DUfj38wpNvcM2nHnnMGFmA==|Flv6rlAli3QU5at2Xke2QQ==}",
+                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keywndf|t2+D3lDnGzwZ8lYdTNZi4A==|cpnIZVXGg+JS5s5auSR2mw==}",
                             "apicPath": "${p?:apic.path}"
                         },
                         "type": "plugin",
@@ -726,7 +726,7 @@
                     },
                     {
                         "name": "apic.organization",
-                        "value": "hollischuihotmailcom-dev",
+                        "value": "<APIC Org>",
                         "description": "",
                         "secure": false
                     },
@@ -744,7 +744,7 @@
                     },
                     {
                         "name": "apic.username",
-                        "value": "hollis.chui@hotmail.com",
+                        "value": "<Bluemix account username>",
                         "description": "",
                         "secure": false
                     }
@@ -807,7 +807,7 @@
                     },
                     {
                         "name": "apic.organization",
-                        "value": "hollischuihotmailcom-dev",
+                        "value": "<APIC Org>",
                         "description": "",
                         "secure": false
                     },
@@ -825,7 +825,7 @@
                     },
                     {
                         "name": "apic.username",
-                        "value": "hollis.chui@hotmail.com",
+                        "value": "<Bluemix account username>",
                         "description": "",
                         "secure": false
                     }
@@ -888,7 +888,7 @@
                     },
                     {
                         "name": "apic.organization",
-                        "value": "hollischuihotmailcom-dev",
+                        "value": "<APIC Org>",
                         "description": "",
                         "secure": false
                     },
@@ -906,7 +906,7 @@
                     },
                     {
                         "name": "apic.username",
-                        "value": "hollis.chui@hotmail.com",
+                        "value": "<Bluemix account username>",
                         "description": "",
                         "secure": false
                     }
