@@ -134,6 +134,11 @@ Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1G
 
 ![UCD Env Prop](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Env_Prop.png)
 
+- Create Resource Tree
+  - Create a Resource Tree similar to what is shown in the image below. 
+
+![UCD Resource Tree](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_ResourceTree.png)
+
 ##### Step 6: Publish API and Product to API Connect
 
 - Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository  and use the steps outlined to explore this architecture.
