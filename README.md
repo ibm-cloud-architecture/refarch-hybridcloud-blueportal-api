@@ -66,9 +66,9 @@ This repository contains the instructions, configuration files and example APIC 
 
 #### 1. Run the reference architecture in a IBM hosted lab environment.
 
-Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab. A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
+Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab, powered by IBM Cloud for [Skytap Solutions](https://www.ibm.com/us-en/marketplace/3286). A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
 
-- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository and use the steps outlined to explore this architecture.
+- Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository and use the steps outlined to explore this architecture.
 
 #### 2. Run the reference architecture in your local environment.
 
@@ -141,4 +141,4 @@ Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1G
 
 ##### Step 6: Publish API and Product to API Connect
 
-- Locate the &quot;HybridDevOpsForAPIC.pdf&quot; document in this repository  and use the steps outlined to explore this architecture.
+- Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository  and use the steps outlined to explore this architecture.
