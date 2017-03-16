@@ -1,4 +1,4 @@
-# Hybrid API DevOps – Activating APIs from Systems of Record (SoRs)
+# Hybrid API DevOps: Activating APIs from Systems of Record (SoRs)
 
 A DevOps platform for APIs provides the ability to streamline and automate the process of developing, building, testing and deploying APIs onto the API runtime cloud platform either when these APIs are organically developed or when they are exposed endpoints to existing backend services.
 
