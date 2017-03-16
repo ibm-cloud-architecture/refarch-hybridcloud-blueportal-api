@@ -1,4 +1,4 @@
-# Hybrid API DevOps: Activating APIs from Systems of Record (SoRs)
+# Hybrid API DevOps - Activating APIs from Systems of Record (SoRs)
 
 A DevOps platform for APIs provides the ability to streamline and automate the process of developing, building, testing and deploying APIs onto the API runtime cloud platform either when these APIs are organically developed or when they are exposed endpoints to existing backend services.
 
@@ -80,7 +80,7 @@ Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1G
 - [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
 - [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
 - [Install API Connect plugin for UCD](https://developer.ibm.com/urbancode/plugin/ibm-api-connect/)
-- [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) – or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
+- [Deploy API Connect Service in Bluemix](https://console.ng.bluemix.net/catalog/services/APIConnect/) - or - [Install API Connect on premises](https://www.ibm.com/support/knowledgecenter/en/SSMNED_5.0.0/com.ibm.apic.install.doc/overview_installing_apimgmt.html)
 - [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
 - [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
 
