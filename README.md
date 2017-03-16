@@ -47,8 +47,8 @@ The following table provides a mapping between API Connect and IBM UrbanCode Dep
 | **API Connect** | **IBM UrbanCode Deploy** | **Description** |
 | --- | --- | --- |
 | Catalog | Environment | A UCD environment represents an API Connect Catalog. Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment. |
-| Product | Component | One UCD component represents one API Product within API Connect. The component stores the version artifacts that represent the version of the API Product. The API Product contains the definition of one or more APIs. |
-| API Implementation | Component(s) | A UCD Component represents an API Implementation. Each API defined in the Product has a corresponding implementation. The source code that provides the implementation of the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages. Each API implementation is represented by a UCD component. This component stores the version artifacts that results from the build of the API&#39;s implementation source code. |
+| API Connect Product/API definitions | Component | Each API Product within API Connect will be represented by one UCD component. The component is a logical grouping of the deployable artifacts of a given API Product, each component can have multiple versions where each UCD component version represent a particular release or build of the corresponding API Product.  The API Product contains the definition of one or more APIs. |
+| API Implementation | Component(s) | Each API implementation will be represented by a UCD Component. Each API defined in the Product has a corresponding implementation. The source code that implements the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages. This component stores the deployable versioned artifacts that result from the build of the API’s implementation source code. |
 
 ## Implement and Explore this Reference Architecture
 
@@ -74,9 +74,8 @@ Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1G
 
 ##### Step 1: Setup your local environment  
 
-- Register for a [Bluemix](https://bluemix.net/registration) account
 - [Install Node.js v4.x](https://nodejs.org/en/)
-- [Install Git](https://git-scm.com/)
+- [Install Git CLI](https://git-scm.com/)
 - [Install shyaml](https://github.com/0k/shyaml) (YAML parser)
 - [Install UrbanCode Deploy on premises](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.install.doc/topics/install_ch.html) or [Use the SaaS version](https://www.ibm.com/us-en/marketplace/application-release-automation)
 - [Install UrbanCode Deploy Agent](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.2/com.ibm.udeploy.install.doc/topics/agent_install_ov.html)
@@ -85,60 +84,24 @@ Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1G
 - [Install API Connect Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.toolkit.doc/tapim_cli_install.html)
 - [Install Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins) and [Jenkins plugin for UCD](https://developer.ibm.com/urbancode/plugin/jenkins-2-0/)
 
-##### Step 2: Create a repository clone
+##### Step 2: Configure pipeline tools
 
-- Clone this GIitHub repository:
-  - [https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api.git)
-
-##### Step 3: Create API Connect Catalogs
-
-- Use the [General instructions to create API Connect catalogs:](https://www.ibm.com/support/knowledgecenter/en/SSFS6T/com.ibm.apic.apionprem.doc/create_env.html)
-
-- andbox (default Catalog)
-- UAT
-- PROD
-
-![API Connect Catalogs](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/APIC_Catalogs.png)
-
-##### Step 4: Configure pipeline tools and integrations
-
-- [Create Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
+- [Re-create the Jenkins Job from disk](https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins#AdministeringJenkins-Moving%2Fcopying%2Frenamingjobs)
   - Copy the file [acme-bank.tar.Z](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/jenkins/acme-bank.tar.Z) into the file system where Jenkins is installed.
   - Extract the contents of &quot;acme-bank.tar.Z&quot; into the &lt;Jenkins installation dir&gt;/jobs/
   - Navigate to the Jenkins feature Manage Jenkins and run &quot;Reload Configuration from Diskk&quot; to automatically create the acme bank job.
 
-- [Configure Jenkins and GitHub integration](https://jenkins.io/solutions/github/)
-  - Add a webhook to the GitHub repository using the Jenkins URL (ie https://&lt;Jenkins server&gt;:&lt;port&gt;/github-webhook/).
-
-![Git Webhook](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/GitHub_Repo_Webhook.png)
-
-- [Configure IBM UrbanCode Deploy and Jenkins integration](http://www-01.ibm.com/support/docview.wss?uid=swg21664334)
-  - Add the UCD server details to the Jenkins&#39; UCD configuration page and test the connection.
-
-![Jenkins UCD Config](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/Jenkins_UCD_Config.png)
-
-##### Step 5: Configure IBM UrbanCode Deploy
-
-- [Import configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
+- [Import UCD configuration](https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.3/com.ibm.udeploy.doc/topics/app_import.html)
   - Locate the file [acme-bank.json](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/ucd-application/acme-bank.json) and import it to the server file system where UCD is installed.
   - Locate the UCD import feature in Applications &gt; Import. And run the import of the acme-bank.json.
 
 ![UCD JSON Import](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Import_JSON.png)
 
-- Update Environment Information
-  - Update each UCD Environment properties to reference corresponding API Connect catalog properties.
-    - Enter the URL to APIC you are using
-    - APIC Username
-    - APIC Tooklit path
-    - APIC Server Org, Catalog ID and Product definition
-
-![UCD Env Prop](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_Env_Prop.png)
-
-- Create Resource Tree
+- Re-create UCD Resource Tree
   - Create a Resource Tree similar to what is shown in the image below. 
 
 ![UCD Resource Tree](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/imgs/UCD_ResourceTree.png)
 
-##### Step 6: Publish API and Product to API Connect
+##### Step 3: Publish API and Product to API Connect
 
-- Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository  and use the steps outlined to explore this architecture.
+- Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository and use the steps outlined to complete the implementation and explore this architecture.
