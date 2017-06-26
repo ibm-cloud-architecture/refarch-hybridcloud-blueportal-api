@@ -48,7 +48,7 @@ The following table provides a mapping between API Connect and IBM UrbanCode Dep
 | --- | --- | --- |
 | Catalog | Environment | A UCD environment represents an API Connect Catalog. Multiple Products may be deployed to an environment (catalog) as each product is represented by a product component resource in the environment. |
 | API Connect Product/API definitions | Component | Each API Product within API Connect will be represented by one UCD component. The component is a logical grouping of the deployable artifacts of a given API Product, each component can have multiple versions where each UCD component version represent a particular release or build of the corresponding API Product.  The API Product contains the definition of one or more APIs. |
-| API Implementation | Component(s) | Each API implementation will be represented by a UCD Component. Each API defined in the Product has a corresponding implementation. The source code that implements the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages. This component stores the deployable versioned artifacts that result from the build of the API’s implementation source code. |
+| API Implementation | Component(s) | Each API implementation will be represented by a UCD Component. Each API defined in the Product has a corresponding implementation. The source code that implements the API may be from a variety of technologies such as StrongLoop Node.js, java, javascript or other languages. This component stores the deployable versioned artifacts that result from the build of the APIâ€™s implementation source code. |
 
 ## Implement and Explore this Reference Architecture
 
@@ -66,9 +66,14 @@ This repository contains the instructions, configuration files and example APIC 
 
 #### 1. Run the reference architecture in a IBM hosted lab environment.
 
-Click this [link](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) to experience this implementation using our cloud hosted lab, powered by IBM Cloud for [Skytap Solutions](https://www.ibm.com/us-en/marketplace/3286). A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
+Click the link below to experience this implementation using our cloud hosted lab, powered by IBM Cloud for [Skytap Solutions](https://www.ibm.com/us-en/marketplace/3286). 
 
-- Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository and use the steps outlined to explore this architecture.
+ - [link will expire on Jan 8, 2018](https://conf.bluedemos.com/app/home/session/711/eeh5t4rsp9wW92L0X8W8Afx3zm3k9j9cub7acxs29fufmjvzd0jlpJJX5Q6S6ZBS) 
+
+ - [link will expire on July 1, 2017](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) 
+ 
+A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
+ - Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository and use the steps outlined to explore this architecture.
 
 #### 2. Run the reference architecture in your local environment.
 
