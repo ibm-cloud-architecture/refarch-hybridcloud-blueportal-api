@@ -461,7 +461,7 @@
                         "properties": {
                             "server": "${p:apic.server}",
                             "username": "${p:apic.username}",
-                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keywndf|t2+D3lDnGzwZ8lYdTNZi4A==|cpnIZVXGg+JS5s5auSR2mw==}",
+                            "password": "${p:apic.password}",
                             "apicPath": "${p?:apic.path}"
                         },
                         "type": "plugin",
