@@ -70,8 +70,6 @@ Click the link below to experience this implementation using our cloud hosted la
 
  - [link will expire on Jan 8, 2018](https://conf.bluedemos.com/app/home/session/711/eeh5t4rsp9wW92L0X8W8Afx3zm3k9j9cub7acxs29fufmjvzd0jlpJJX5Q6S6ZBS) 
 
- - [link will expire on July 1, 2017](https://bluedemos.com/app/home/session/579/0UXM81F63PFE5PE6O1GH2AWCDI6SJW6U6T03B8I4BBR8TVB1EMItmco6lhhox1i6) 
- 
 A detailed set of [instructions](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf) is available to begin your journey. No installation is required as this lab runs in a public cloud.
  - Locate the &quot;[HybridDevOpsForAPIC.pdf](https://github.com/ibm-cloud-architecture/refarch-hybridcloud-blueportal-api/blob/master/HybridDevOpsForAPIC.pdf)&quot; document in this repository and use the steps outlined to explore this architecture.
 
